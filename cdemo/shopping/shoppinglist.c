@@ -10,7 +10,6 @@ struct Student {
 
 void printStudent(struct Student* student)
 {
-  printf("This is the shopping list: -\n");
   printf("  Items: %s\n", student->firstnm);
 //  printf("  Last Name: %s\n", student->lastnm);
  // printf("  Age: %d\n", student->age);
