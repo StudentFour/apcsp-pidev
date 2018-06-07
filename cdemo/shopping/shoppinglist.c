@@ -1,20 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Student {
-  char firstnm[50];
-  char lastnm[50];
-  int age;
-  int studentid;
+struct List {
+  char Item[50];
+  int Quantity;
 };
 
-void printStudent(struct Student* student)
+void printList(struct List* item)
 {
-  printf("This is the shopping list: -\n");
-  printf("  Items: %s\n", student->firstnm);
-//  printf("  Last Name: %s\n", student->lastnm);
- // printf("  Age: %d\n", student->age);
-  //printf("  Student ID: %d\n", student->studentid);
+  printf("  Item: %s\n", item->Item);
+  printf("    Quantity: %d\n", item->Quantity);
 }
 
 int main()
@@ -24,51 +19,36 @@ int main()
 	fgets(input, 256, stdin);
 	int yn = 2;
 	sscanf(input, "%d", &yn);
-	struct Student mystudent[10];
-	int studentnum = 0;
+	struct List myitem[10];
+	int itemnum = 0;
 		while (yn ==  1)
 		{
-				for (int i = studentnum; i < studentnum + 1; i++)
+				for (int i = itemnum; i < itemnum + 1; i++)
 				{
 
-					printf("Item 1:\n");
+					printf("Item:\n");
 					fgets(input, 256, stdin);
 					char a[50];
 					sscanf(input, "%s", a);
-					strcpy(mystudent[i].firstnm, a);
-				}
-        	
-
-	studentnum++;
-                        printf("Add another item? 1 = yes  0 = no\n");
-                        fgets(input, 256, stdin);
-                        sscanf(input, "%d", &yn);break;
-		}
-
-				//	printf("Item 2:\n");
-                                  //      fgets(input, 256, stdin);
-				//	char b[50];
-                                  //      sscanf(input, "%s", b);
-				//	strcpy(mystudent[i].lastnm, b);
+					strcpy(myitem[i].Item, a);
 					
-				//	printf("Item 3:\n");
-                                  //      fgets(input, 256, stdin);
-				//	int c;
-                                  //      sscanf(input, "%d", &c);
-				//	mystudent[i].age = c;
+					
+					printf("Quantity:\n");
+                                        fgets(input, 256, stdin);
+					int c;
+                                        sscanf(input, "%d", &c);
+					myitem[i].Quantity = c;
 
-                                  //      printf("Item 4:\n");
-                                    //    fgets(input, 256, stdin);
-				//	int d;
-                                  //      sscanf(input, "%d", &d);
-				//	mystudent[i].studentid = d;
-			//	}
-		
-        printf("Here's your shopping list:\n");
-	for (int i = 0; i < studentnum; i++)
+				}
+			itemnum++;
+			printf("Add new item? 1 = yes  0 = no\n");
+			fgets(input, 256, stdin);
+			sscanf(input, "%d", &yn);
+		}
+	printf("Here's your shopping list...\n");
+	for (int i = 0; i < itemnum; i++)
 	{
-		printStudent(&mystudent[i]);
-		//won't compile here: says "neither an array nor a pointer nor a vector"
+		printList(&myitem[i]);
 	}
 
 }
