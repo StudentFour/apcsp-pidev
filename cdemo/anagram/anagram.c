@@ -10,10 +10,10 @@ printf("Check if two words are anagrams\n\n");
   char a[100], b[100];
  
   printf("Enter a word:\n");
-  gets(a);
+  scanf(a);
  
   printf("Enter a word:\n");
-  gets(b);
+  scanf(b);
  
   if (check_anagram(a, b) == 1)
     printf("These words are anagrams. A ragman!\n");
@@ -27,7 +27,6 @@ int check_anagram(char a[], char b[])
 {
   int first[26] = {0}, second[26] = {0}, c = 0;
  
-  // Calculating frequency of characters of first string
  
   while (a[c] != '\0')
   {
@@ -42,8 +41,6 @@ int check_anagram(char a[], char b[])
     second[b[c]-'a']++;
     c++;
   }
- 
-  // Comparing frequency of characters
  
   for (c = 0; c < 26; c++)
   {
