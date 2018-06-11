@@ -1,1 +1,1 @@
-int check_anagram(char a[], char b[])
+int check_anagram(char a[], char b[]);
